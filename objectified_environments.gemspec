@@ -28,16 +28,5 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency "sqlite3"
   end
 
-  rails_version = ENV['OBJECTIFIED_ENVIRONMENTS_RAILS_TEST_VERSION']
-  rails_version = rails_version.strip if rails_version
-
-  version_spec = case rails_version
-  when nil then [ ">= 3.0", "<= 4.99.99" ]
-  when 'master' then nil# { :git => 'git://github.com/rails/rails.git' }
-  else [ "=#{rails_version}" ]
-  end
-
-  if version_spec
-    spec.add_dependency("rails", *version_spec)
-  end
+  spec.add_dependency("rails", ">= 3.0")
 end
